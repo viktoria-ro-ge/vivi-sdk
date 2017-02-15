@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.viroge.utils.reorder.ReorderHeader
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/personalization_of_accounts_portfolio_header"
+    android:layout_width="match_parent"
+    android:layout_height="54dp"
+    android:layout_marginTop="8dp"
+    android:background="#ff99cc99"
+    android:clipToPadding="false"
+    android:elevation="2dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/personalization_of_accounts_portfolio_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:gravity="left|center_vertical"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+</com.viroge.utils.reorder.ReorderHeader>

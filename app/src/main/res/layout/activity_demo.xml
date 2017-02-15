@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.viroge.utils.reorder.ReorderRootView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/personalization_of_accounts_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <include layout="@layout/toolbar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <include layout="@layout/reorder_category_header" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/personalization_of_accounts_root_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <include layout="@layout/reorder_item_details" />
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</com.viroge.utils.reorder.ReorderRootView>

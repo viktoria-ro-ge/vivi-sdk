@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.viroge.utils.reorder.ReorderItemDetailsLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/personalization_of_accounts_account_details_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:visibility="gone"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:id="@+id/personalization_of_accounts_account_details_section1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="#ffddeedd"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/personalization_of_accounts_account_details_title"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="12dp"
+            android:drawableRight="@drawable/ic_navigation_cancel"
+            android:gravity="left|center_vertical"
+            android:text="Account name"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/personalization_of_accounts_account_details_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:gravity="left|center_vertical"
+            android:text="NL blabla"
+            android:textColor="@android:color/black" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/personalization_of_accounts_account_details_section2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/personalization_of_accounts_account_details_section1"
+        android:layout_marginTop="24dp"
+        android:background="#ffddeedd"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/personalization_of_accounts_account_details_visibility"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="12dp"
+            android:drawableRight="@drawable/ic_action_done"
+            android:gravity="left|center_vertical"
+            android:text="Visible on account overview"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/personalization_of_accounts_account_details_save_button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="#ff99cc99"
+        android:text="Save"
+        android:textColor="@android:color/black" />
+
+</com.viroge.utils.reorder.ReorderItemDetailsLayout>
