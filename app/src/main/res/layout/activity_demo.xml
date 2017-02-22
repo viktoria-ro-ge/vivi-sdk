@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.viroge.utils.reorder.ReorderRootView
+<com.viroge.utils.navigation.NavigationDrawer
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/personalization_of_accounts_root"
+    android:id="@+id/navigation_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.CoordinatorLayout
+    <!-- The main content view -->
+    <com.viroge.utils.reorder.ReorderRootView
+        android:id="@+id/personalization_of_accounts_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
@@ -31,6 +33,17 @@
 
         <include layout="@layout/reorder_item_details" />
 
-    </android.support.design.widget.CoordinatorLayout>
+    </com.viroge.utils.reorder.ReorderRootView>
 
-</com.viroge.utils.reorder.ReorderRootView>
+    <!-- The navigation drawer -->
+    <ListView
+        android:id="@+id/navigation_drawer_menu"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#ff99cc99"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp" />
+
+</com.viroge.utils.navigation.NavigationDrawer>

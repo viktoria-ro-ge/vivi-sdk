@@ -1,9 +1,8 @@
 package com.viroge.utils.reorder;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
 import android.os.Parcelable;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -11,7 +10,6 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.AttributeSet;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
 
 import com.viroge.utils.drag_n_drop.model.DragNDropItemModel;
 import com.viroge.utils.examples.R;
@@ -23,7 +21,7 @@ import com.viroge.utils.generic.ToolbarUtil;
 
 import java.util.ArrayList;
 
-public class ReorderRootView extends FrameLayout {
+public class ReorderRootView extends CoordinatorLayout {
 
     // Provide hard coded TITLES for now for the categories and the items
     private static final String CATEGORIES[] = new String[]{
@@ -62,11 +60,6 @@ public class ReorderRootView extends FrameLayout {
 
     public ReorderRootView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public ReorderRootView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
     }
 
     @Override
