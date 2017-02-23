@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.viroge.utils.examples.R;
-import com.viroge.utils.drag_n_drop.model.DragNDropCategoryModel;
+import com.viroge.utils.drag_n_drop.model.DragNDropNoteModel;
 
 public class ReorderHeader extends LinearLayout {
 
@@ -37,7 +37,7 @@ public class ReorderHeader extends LinearLayout {
         title = (TextView) findViewById(R.id.personalization_of_accounts_portfolio_title);
     }
 
-    public void bind(final DragNDropCategoryModel categoryModel) {
+    public void bind(final DragNDropNoteModel categoryModel) {
         if (categoryModel == null) {
             this.setVisibility(GONE);
 

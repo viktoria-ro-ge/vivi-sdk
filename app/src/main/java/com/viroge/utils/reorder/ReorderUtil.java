@@ -6,9 +6,8 @@ public class ReorderUtil {
     public static final int MENU_STATE_REORDER = 1;
 
     // Toolbar MODES
-    public static final int TOOLBAR_MODE_CATEGORIES = 0;
-    public static final int TOOLBAR_MODE_ITEMS = 1;
-    public static final int TOOLBAR_MODE_ITEM_DETAILS = 2;
+    public static final int TOOLBAR_MODE_NOTES = 0;
+    public static final int TOOLBAR_MODE_DETAILS = 1;
 
     // Toolbar TITLES - Currently hardcoded
     public static final String TOOLBAR_TITLE_CATEGORIES = "Categories";

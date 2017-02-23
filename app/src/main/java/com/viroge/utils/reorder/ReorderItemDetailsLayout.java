@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.viroge.utils.drag_n_drop.model.DragNDropItemModel;
+import com.viroge.utils.drag_n_drop.model.DragNDropNoteModel;
 import com.viroge.utils.examples.R;
 
 public class ReorderItemDetailsLayout extends RelativeLayout {
@@ -20,7 +20,7 @@ public class ReorderItemDetailsLayout extends RelativeLayout {
     private Button saveButton;
     private OnSaveListener onSaveListener;
 
-    private DragNDropItemModel itemModel;
+    private DragNDropNoteModel itemModel;
 
     public ReorderItemDetailsLayout(Context context) {
         super(context);
@@ -60,15 +60,15 @@ public class ReorderItemDetailsLayout extends RelativeLayout {
         });
     }
 
-    public void bind(final DragNDropItemModel itemModel,
+    public void bind(final DragNDropNoteModel itemModel,
                      final OnSaveListener listener) {
         this.itemModel = itemModel;
         this.onSaveListener = listener;
 
         if (itemModel != null) {
-            itemTitle.setText(itemModel.title);
-            itemSubtitle.setText(itemModel.subtitle);
             setVisibility(VISIBLE);
+            itemTitle.setText(itemModel.title);
+            itemSubtitle.setText(itemModel.freeText);
 
         } else {
             setVisibility(GONE);
@@ -76,6 +76,6 @@ public class ReorderItemDetailsLayout extends RelativeLayout {
     }
 
     public interface OnSaveListener {
-        void onSave(DragNDropItemModel itemModel);
+        void onSave(DragNDropNoteModel itemModel);
     }
 }

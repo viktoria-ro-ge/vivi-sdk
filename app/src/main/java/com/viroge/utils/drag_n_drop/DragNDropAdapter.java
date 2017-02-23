@@ -6,11 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.viroge.utils.drag_n_drop.model.DragNDropItemModel;
 import com.viroge.utils.reorder.ReorderUtil;
-import com.viroge.utils.drag_n_drop.model.DragNDropCategoryModel;
-import com.viroge.utils.drag_n_drop.view.DragNDropItemView;
-import com.viroge.utils.drag_n_drop.view.DragNDropCategoryView;
+import com.viroge.utils.drag_n_drop.model.DragNDropNoteModel;
+import com.viroge.utils.drag_n_drop.view.DragNDropNoteView;
 import com.viroge.utils.generic.GenericViewHolder;
 import com.viroge.utils.examples.R;
 
@@ -20,8 +18,8 @@ import java.util.List;
 
 public class DragNDropAdapter extends RecyclerView.Adapter<GenericViewHolder> {
 
-    private static final int TYPE_CATEGORY = 0;
-    private static final int TYPE_ITEM = 1;
+    private static final int TYPE_DEFAULT = 0;
+    private static final int TYPE_NOTE = 1;
 
     private final ArrayList<Parcelable> itemsList = new ArrayList<>();
     private DragNDropListener itemListener;
@@ -36,23 +34,24 @@ public class DragNDropAdapter extends RecyclerView.Adapter<GenericViewHolder> {
 
     @Override
     public int getItemViewType(int position) {
-        if (itemsList.get(position) instanceof DragNDropCategoryModel) {
-            return TYPE_CATEGORY;
+        if (itemsList.get(position) instanceof DragNDropNoteModel) {
+            return TYPE_NOTE;
         }
-        return TYPE_ITEM;
+        return TYPE_DEFAULT;
     }
 
     @Override
     public GenericViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final View view;
         switch (viewType) {
-            case TYPE_CATEGORY:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.drag_n_drop_category, parent, false);
+            case TYPE_NOTE:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.drag_n_drop_note, parent, false);
                 break;
 
-            case TYPE_ITEM:
+            case TYPE_DEFAULT:
             default:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.drag_n_drop_item, parent, false);
+                // TODO LATER change this one to an "add new" item
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.drag_n_drop_note, parent, false);
                 break;
         }
         return new GenericViewHolder(view, viewType);
@@ -62,14 +61,12 @@ public class DragNDropAdapter extends RecyclerView.Adapter<GenericViewHolder> {
     public void onBindViewHolder(GenericViewHolder holder, final int position) {
         // Bind the new data to the item
         switch (holder.getHolderType()) {
-            case TYPE_CATEGORY:
-                final DragNDropCategoryView portfolioItem = (DragNDropCategoryView) holder.itemView;
-                portfolioItem.bind((DragNDropCategoryModel) itemsList.get(position), holder, itemListener, currentState);
+            case TYPE_NOTE:
+                final DragNDropNoteView view = (DragNDropNoteView) holder.itemView;
+                view.bind((DragNDropNoteModel) itemsList.get(position), holder, itemListener, currentState);
                 break;
 
-            case TYPE_ITEM:
-                final DragNDropItemView accountItem = (DragNDropItemView) holder.itemView;
-                accountItem.bind((DragNDropItemModel) itemsList.get(position), holder, itemListener, currentState);
+            case TYPE_DEFAULT:
             default:
                 break;
         }

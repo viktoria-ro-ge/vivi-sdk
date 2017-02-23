@@ -3,7 +3,7 @@ package com.viroge.utils.reorder;
 import android.content.Context;
 import android.os.Parcelable;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -11,12 +11,11 @@ import android.util.AttributeSet;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.viroge.utils.drag_n_drop.model.DragNDropItemModel;
 import com.viroge.utils.examples.R;
 import com.viroge.utils.drag_n_drop.DragNDropListener;
 import com.viroge.utils.drag_n_drop.DragNDropAdapter;
 import com.viroge.utils.drag_n_drop.DragNDropTouchHelperCallback;
-import com.viroge.utils.drag_n_drop.model.DragNDropCategoryModel;
+import com.viroge.utils.drag_n_drop.model.DragNDropNoteModel;
 import com.viroge.utils.generic.ToolbarUtil;
 
 import java.util.ArrayList;
@@ -24,18 +23,15 @@ import java.util.ArrayList;
 public class ReorderRootView extends CoordinatorLayout {
 
     // Provide hard coded TITLES for now for the categories and the items
-    private static final String CATEGORIES[] = new String[]{
+    private static final String NOTES[] = new String[]{
             "Food", "Clothes", "Expenses", "Household Related", "Fun", "Travel", "Kids", "Art", "Books", "Sport", "Technology"
-    };
-    private static final String ITEMS[] = new String[]{
-            "Dummy Item 1", "Dummy Item 2", "Dummy Item 3", "Dummy Item 4", "Dummy Item 5", "Dummy Item 6", "Dummy Item 7", "Dummy Item 9", "Dummy Item 10"
     };
 
     private final ReorderItemDetailsLayout.OnSaveListener onSaveListener =
             new ReorderItemDetailsLayout.OnSaveListener() {
                 @Override
-                public void onSave(DragNDropItemModel account) {
-                    // TODO later will actually save the account data
+                public void onSave(DragNDropNoteModel note) {
+                    // TODO later will actually save the data
                     openPreviousScreen();
                 }
             };
@@ -43,7 +39,7 @@ public class ReorderRootView extends CoordinatorLayout {
     private final ArrayList<Parcelable> categoryModels = new ArrayList<>();
 
     private int menuState = ReorderUtil.MENU_STATE_NORMAL;
-    private int toolbarMode = ReorderUtil.TOOLBAR_MODE_CATEGORIES;
+    private int toolbarMode = ReorderUtil.TOOLBAR_MODE_NOTES;
 
     private Toolbar toolbar;
     private ReorderHeader categoryHeader;
@@ -73,24 +69,18 @@ public class ReorderRootView extends CoordinatorLayout {
                 openPreviousScreen();
             }
         });
-        updateToolbar(ReorderUtil.TOOLBAR_MODE_CATEGORIES);
+        updateToolbar(ReorderUtil.TOOLBAR_MODE_NOTES);
 
         categoryHeader = (ReorderHeader) findViewById(R.id.personalization_of_accounts_portfolio_header);
         reorderItemDetailsLayout = (ReorderItemDetailsLayout) findViewById(R.id.personalization_of_accounts_account_details_layout);
 
         final RecyclerView portfoliosList = (RecyclerView) findViewById(R.id.personalization_of_accounts_root_recycler);
-        portfoliosList.setLayoutManager(new LinearLayoutManager(getContext()));
+        portfoliosList.setLayoutManager(new GridLayoutManager(getContext(), 2));
         adapter = new DragNDropAdapter();
 
-        // Prepare the CATEGORIES and the ITEMS
-        for (String category : CATEGORIES) {
-            final ArrayList<Parcelable> accountsMasks = new ArrayList<>();
-            for (String item : ITEMS) {
-                // Currently hardcoded data
-                final DragNDropItemModel accountMask = new DragNDropItemModel(false, item, "More information about item", "21 Sept 1990");
-                accountsMasks.add(accountMask);
-            }
-            final DragNDropCategoryModel mask = new DragNDropCategoryModel(category, accountsMasks);
+        // Prepare the Notes
+        for (String note : NOTES) {
+            final DragNDropNoteModel mask = new DragNDropNoteModel(note, "Temp useless text");
             categoryModels.add(mask);
         }
 
@@ -108,18 +98,9 @@ public class ReorderRootView extends CoordinatorLayout {
             @Override
             public void onOpenDetails(Parcelable item) {
                 if (menuState == ReorderUtil.MENU_STATE_NORMAL) {
-                    if (item instanceof DragNDropCategoryModel) {
-                        // Open list with ITEMS
-                        adapter.setItems(((DragNDropCategoryModel) item).items);
-                        categoryHeader.bind((DragNDropCategoryModel) item);
-                        setMenuState(ReorderUtil.MENU_STATE_NORMAL);
-                        updateToolbar(ReorderUtil.TOOLBAR_MODE_ITEMS);
-
-                    } else if (item instanceof DragNDropItemModel) {
-                        // Open account details
-                        reorderItemDetailsLayout.bind((DragNDropItemModel) item, onSaveListener);
-                        updateToolbar(ReorderUtil.TOOLBAR_MODE_ITEM_DETAILS);
-                    }
+                    // Open NOTE edit
+                    reorderItemDetailsLayout.bind((DragNDropNoteModel) item, onSaveListener);
+                    updateToolbar(ReorderUtil.TOOLBAR_MODE_DETAILS);
                 }
             }
 
@@ -156,13 +137,7 @@ public class ReorderRootView extends CoordinatorLayout {
 
         } else if (reorderItemDetailsLayout.isShown()) {
             reorderItemDetailsLayout.bind(null, null);
-            updateToolbar(ReorderUtil.TOOLBAR_MODE_ITEMS);
-            return true;
-
-        } else if (categoryHeader.isShown()) {
-            adapter.setItems(categoryModels);
-            categoryHeader.bind(null); // No portfolio to bound to the header - List all CATEGORIES
-            updateToolbar(ReorderUtil.TOOLBAR_MODE_CATEGORIES);
+            updateToolbar(ReorderUtil.TOOLBAR_MODE_NOTES);
             return true;
         }
         return false;
@@ -186,7 +161,7 @@ public class ReorderRootView extends CoordinatorLayout {
                 break;
         }
         switch (toolbarMode) {
-            case ReorderUtil.TOOLBAR_MODE_ITEM_DETAILS:
+            case ReorderUtil.TOOLBAR_MODE_DETAILS:
                 updateToolbar(
                         navigationIconRes,
                         ReorderUtil.TOOLBAR_TITLE_ITEM_DETAILS,
@@ -194,15 +169,7 @@ public class ReorderRootView extends CoordinatorLayout {
                         menuItemIconRes);
                 break;
 
-            case ReorderUtil.TOOLBAR_MODE_ITEMS:
-                updateToolbar(
-                        navigationIconRes,
-                        ReorderUtil.TOOLBAR_TITLE_ITEMS,
-                        true,
-                        menuItemIconRes);
-                break;
-
-            case ReorderUtil.TOOLBAR_MODE_CATEGORIES:
+            case ReorderUtil.TOOLBAR_MODE_NOTES:
                 updateToolbar(
                         navigationIconRes,
                         ReorderUtil.TOOLBAR_TITLE_CATEGORIES,
