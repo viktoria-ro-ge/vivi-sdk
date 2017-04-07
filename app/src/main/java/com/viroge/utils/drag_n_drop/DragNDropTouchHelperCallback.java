@@ -26,13 +26,17 @@ public class DragNDropTouchHelperCallback extends ItemTouchHelper.Callback {
                                 final RecyclerView.ViewHolder viewHolder) {
         final int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
         final int swipeFlags = ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
-        return makeMovementFlags(dragFlags, swipeFlags);
+        return viewHolder.getItemViewType() == DragNDropAdapter.TYPE_ADD_NEW ? 0 : makeMovementFlags(dragFlags, swipeFlags);
     }
 
     @Override
     public boolean onMove(final RecyclerView recyclerView,
                           final RecyclerView.ViewHolder viewHolder,
                           final RecyclerView.ViewHolder target) {
+        // Restrict movement to source view type
+        if (viewHolder.getItemViewType() != target.getItemViewType()) {
+            return false;
+        }
         mAdapter.onItemMove(viewHolder.getAdapterPosition(), target.getAdapterPosition());
         return true;
     }

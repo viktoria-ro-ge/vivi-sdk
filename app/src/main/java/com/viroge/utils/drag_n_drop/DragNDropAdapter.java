@@ -18,8 +18,8 @@ import java.util.List;
 
 public class DragNDropAdapter extends RecyclerView.Adapter<GenericViewHolder> {
 
-    private static final int TYPE_DEFAULT = 0;
-    private static final int TYPE_NOTE = 1;
+    public static final int TYPE_ADD_NEW = 0;
+    public static final int TYPE_NOTE = 1;
 
     private final ArrayList<Parcelable> itemsList = new ArrayList<>();
     private DragNDropListener itemListener;
@@ -29,6 +29,7 @@ public class DragNDropAdapter extends RecyclerView.Adapter<GenericViewHolder> {
     public void setItems(final List<Parcelable> items) {
         itemsList.clear();
         itemsList.addAll(items);
+        itemsList.add(null); // for the button ADD NEW
         notifyDataSetChanged();
     }
 
@@ -37,7 +38,7 @@ public class DragNDropAdapter extends RecyclerView.Adapter<GenericViewHolder> {
         if (itemsList.get(position) instanceof DragNDropNoteModel) {
             return TYPE_NOTE;
         }
-        return TYPE_DEFAULT;
+        return TYPE_ADD_NEW;
     }
 
     @Override
@@ -48,10 +49,10 @@ public class DragNDropAdapter extends RecyclerView.Adapter<GenericViewHolder> {
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.drag_n_drop_note, parent, false);
                 break;
 
-            case TYPE_DEFAULT:
+            case TYPE_ADD_NEW:
             default:
                 // TODO LATER change this one to an "add new" item
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.drag_n_drop_note, parent, false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.drag_n_drop_add_new, parent, false);
                 break;
         }
         return new GenericViewHolder(view, viewType);
@@ -66,7 +67,7 @@ public class DragNDropAdapter extends RecyclerView.Adapter<GenericViewHolder> {
                 view.bind((DragNDropNoteModel) itemsList.get(position), holder, itemListener, currentState);
                 break;
 
-            case TYPE_DEFAULT:
+            case TYPE_ADD_NEW:
             default:
                 break;
         }
@@ -75,10 +76,6 @@ public class DragNDropAdapter extends RecyclerView.Adapter<GenericViewHolder> {
     @Override
     public int getItemCount() {
         return itemsList.size();
-    }
-
-    public List<Parcelable> getItems() {
-        return itemsList;
     }
 
     public boolean onItemMove(int fromPosition, int toPosition) {
