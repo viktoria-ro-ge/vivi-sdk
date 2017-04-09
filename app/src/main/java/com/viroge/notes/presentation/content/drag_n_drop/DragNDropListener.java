@@ -1,4 +1,4 @@
-package com.viroge.utils.drag_n_drop;
+package com.viroge.notes.presentation.content.drag_n_drop;
 
 import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;

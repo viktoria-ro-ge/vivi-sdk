@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.AppBarLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.viroge.notes.presentation.toolbar.ToolbarPresenter xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/app_bar_layout"
     android:layout_width="match_parent"
@@ -24,4 +23,5 @@
             android:textStyle="bold" />
 
     </android.support.v7.widget.Toolbar>
-</android.support.design.widget.AppBarLayout>
+
+</com.viroge.notes.presentation.toolbar.ToolbarPresenter>

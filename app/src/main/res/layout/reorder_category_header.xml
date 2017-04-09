@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.viroge.utils.reorder.ReorderHeader
+<com.viroge.notes.presentation.reorder.ReorderHeader
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/personalization_of_accounts_portfolio_header"
     android:layout_width="match_parent"
@@ -21,4 +21,4 @@
         android:textColor="@android:color/black"
         android:textStyle="bold" />
 
-</com.viroge.utils.reorder.ReorderHeader>
+</com.viroge.notes.presentation.reorder.ReorderHeader>

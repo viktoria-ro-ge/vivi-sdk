@@ -1,9 +1,7 @@
-package com.viroge.utils.drag_n_drop.view;
+package com.viroge.notes.presentation.content.drag_n_drop.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v7.widget.RecyclerView;
@@ -14,10 +12,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.viroge.utils.drag_n_drop.DragNDropListener;
-import com.viroge.utils.drag_n_drop.model.DragNDropNoteModel;
-import com.viroge.utils.examples.R;
-import com.viroge.utils.reorder.ReorderUtil;
+import com.viroge.notes.presentation.content.drag_n_drop.DragNDropListener;
+import com.viroge.notes.presentation.content.drag_n_drop.model.DragNDropNoteModel;
+import com.viroge.notes.examples.R;
+import com.viroge.notes.state.States;
+import com.viroge.notes.state.ToolbarStateManager;
 
 public class DragNDropNoteView extends LinearLayout {
 
@@ -65,8 +64,7 @@ public class DragNDropNoteView extends LinearLayout {
 
     public void bind(final DragNDropNoteModel itemModel,
                      final RecyclerView.ViewHolder holder,
-                     final DragNDropListener startDragListener,
-                     final int currentModeState) {
+                     final DragNDropListener startDragListener) {
         this.itemModel = itemModel;
         this.startDragListener = startDragListener;
 
@@ -85,7 +83,7 @@ public class DragNDropNoteView extends LinearLayout {
         });
 
         // Prepare the button to show according to the current mode
-        if (currentModeState == ReorderUtil.MENU_STATE_NORMAL) {
+        if (ToolbarStateManager.getInstance().getState() == States.TOOLBAR_NORMAL) {
             reorderButton.setVisibility(GONE);
             this.setOnClickListener(clickListener);
 

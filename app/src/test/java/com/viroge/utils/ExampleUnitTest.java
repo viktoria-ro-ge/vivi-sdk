@@ -1,4 +1,4 @@
-package com.viroge.utils;
+package com.viroge.notes;
 
 import org.junit.Test;
 

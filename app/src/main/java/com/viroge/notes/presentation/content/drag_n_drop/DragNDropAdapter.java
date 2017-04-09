@@ -1,4 +1,4 @@
-package com.viroge.utils.drag_n_drop;
+package com.viroge.notes.presentation.content.drag_n_drop;
 
 import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
@@ -6,11 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.viroge.utils.reorder.ReorderUtil;
-import com.viroge.utils.drag_n_drop.model.DragNDropNoteModel;
-import com.viroge.utils.drag_n_drop.view.DragNDropNoteView;
-import com.viroge.utils.generic.GenericViewHolder;
-import com.viroge.utils.examples.R;
+import com.viroge.notes.presentation.content.drag_n_drop.model.DragNDropNoteModel;
+import com.viroge.notes.presentation.content.drag_n_drop.view.DragNDropNoteView;
+import com.viroge.notes.presentation.content.generic.GenericViewHolder;
+import com.viroge.notes.examples.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,8 +22,6 @@ public class DragNDropAdapter extends RecyclerView.Adapter<GenericViewHolder> {
 
     private final ArrayList<Parcelable> itemsList = new ArrayList<>();
     private DragNDropListener itemListener;
-
-    private int currentState = ReorderUtil.MENU_STATE_NORMAL;
 
     public void setItems(final List<Parcelable> items) {
         itemsList.clear();
@@ -64,7 +61,7 @@ public class DragNDropAdapter extends RecyclerView.Adapter<GenericViewHolder> {
         switch (holder.getHolderType()) {
             case TYPE_NOTE:
                 final DragNDropNoteView view = (DragNDropNoteView) holder.itemView;
-                view.bind((DragNDropNoteModel) itemsList.get(position), holder, itemListener, currentState);
+                view.bind((DragNDropNoteModel) itemsList.get(position), holder, itemListener);
                 break;
 
             case TYPE_ADD_NEW:
@@ -94,10 +91,5 @@ public class DragNDropAdapter extends RecyclerView.Adapter<GenericViewHolder> {
 
     public void setOnStartDragListener(final DragNDropListener startDragListener) {
         this.itemListener = startDragListener;
-    }
-
-    public void setMenuState(final int currentState) {
-        this.currentState = currentState;
-        notifyDataSetChanged();
     }
 }

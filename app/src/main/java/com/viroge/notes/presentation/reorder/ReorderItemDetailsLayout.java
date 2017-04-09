@@ -1,4 +1,4 @@
-package com.viroge.utils.reorder;
+package com.viroge.notes.presentation.reorder;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -10,15 +10,14 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.viroge.utils.drag_n_drop.model.DragNDropNoteModel;
-import com.viroge.utils.examples.R;
+import com.viroge.notes.presentation.content.drag_n_drop.model.DragNDropNoteModel;
+import com.viroge.notes.examples.R;
 
 public class ReorderItemDetailsLayout extends RelativeLayout {
 
     private TextView itemTitle;
     private TextView itemSubtitle;
     private Button saveButton;
-    private OnSaveListener onSaveListener;
 
     private DragNDropNoteModel itemModel;
 
@@ -48,7 +47,7 @@ public class ReorderItemDetailsLayout extends RelativeLayout {
         saveButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                onSaveListener.onSave(itemModel);
+                // TODO
             }
         });
 
@@ -60,10 +59,8 @@ public class ReorderItemDetailsLayout extends RelativeLayout {
         });
     }
 
-    public void bind(final DragNDropNoteModel itemModel,
-                     final OnSaveListener listener) {
+    public void bind(final DragNDropNoteModel itemModel) {
         this.itemModel = itemModel;
-        this.onSaveListener = listener;
 
         if (itemModel != null) {
             setVisibility(VISIBLE);

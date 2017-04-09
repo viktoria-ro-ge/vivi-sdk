@@ -1,31 +1,49 @@
-package com.viroge.utils.navigation;
+package com.viroge.notes.presentation.side_menu;
 
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.viroge.utils.examples.R;
+import com.viroge.notes.presentation.Notifier;
+import com.viroge.notes.presentation.Presenter;
+import com.viroge.notes.presentation.side_menu.NavigationItemsAdapter;
+import com.viroge.notes.presentation.side_menu.NavigationUtils;
+import com.viroge.notes.examples.R;
 
-public class NavigationDrawer extends DrawerLayout implements NavigationView.OnNavigationItemSelectedListener, DrawerLayout.DrawerListener {
+public class SideMenuPresenter extends DrawerLayout
+        implements Presenter, NavigationView.OnNavigationItemSelectedListener, DrawerLayout.DrawerListener {
 
+    private Notifier notifier;
     private CoordinatorLayout coordinatorLayout;
     private ListView drawerList;
 
-    public NavigationDrawer(Context context) {
+    private AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            parent.getAdapter();
+            view.isFocused();
+            Log.d("", "all: " + position + " - " + id);
+
+            // todo see what to hook here
+        }
+    };
+
+    public SideMenuPresenter(Context context) {
         super(context);
     }
 
-    public NavigationDrawer(Context context, AttributeSet attrs) {
+    public SideMenuPresenter(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public NavigationDrawer(Context context, AttributeSet attrs, int defStyle) {
+    public SideMenuPresenter(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
@@ -71,5 +89,50 @@ public class NavigationDrawer extends DrawerLayout implements NavigationView.OnN
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         return false;
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void pause() {
+
+    }
+
+    @Override
+    public void stop() {
+
+    }
+
+    @Override
+    public void destroy() {
+
+    }
+
+    @Override
+    public void onError(String message) {
+
+    }
+
+    @Override
+    public boolean goBack() {
+        return false;
+    }
+
+    @Override
+    public void setNotifier(Notifier notifier) {
+        this.notifier = notifier;
+    }
+
+    @Override
+    public void updateOnToolbarStateChanged() {
+
+    }
+
+    @Override
+    public void updateOnScreenStateChanged() {
+
     }
 }

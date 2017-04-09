@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.viroge.utils.navigation.NavigationDrawer
+<com.viroge.notes.presentation.side_menu.SideMenuPresenter
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation_drawer"
@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <!-- The main content view -->
-    <com.viroge.utils.reorder.ReorderRootView
+    <com.viroge.notes.presentation.content.ContentPresenter
         android:id="@+id/personalization_of_accounts_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,7 +33,7 @@
 
         <include layout="@layout/reorder_item_details" />
 
-    </com.viroge.utils.reorder.ReorderRootView>
+    </com.viroge.notes.presentation.content.ContentPresenter>
 
     <!-- The navigation drawer -->
     <ListView
@@ -46,4 +46,4 @@
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp" />
 
-</com.viroge.utils.navigation.NavigationDrawer>
+</com.viroge.notes.presentation.side_menu.SideMenuPresenter>

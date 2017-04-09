@@ -1,4 +1,4 @@
-package com.viroge.utils;
+package com.viroge.notes;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,4 +1,4 @@
-package com.viroge.utils.generic;
+package com.viroge.notes.presentation.content.generic;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

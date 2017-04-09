@@ -1,4 +1,4 @@
-package com.viroge.utils.navigation;
+package com.viroge.notes.presentation.side_menu;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -8,14 +8,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.viroge.utils.examples.R;
+import com.viroge.notes.examples.R;
 
 import java.util.List;
 
-class NavigationItemsAdapter extends ArrayAdapter<NavigationItem> {
+public class NavigationItemsAdapter extends ArrayAdapter<NavigationItem> {
 
-    NavigationItemsAdapter(final Context context,
-                           final List<NavigationItem> items) {
+    public NavigationItemsAdapter(final Context context,
+                                  final List<NavigationItem> items) {
         super(context, 0, items);
     }
 

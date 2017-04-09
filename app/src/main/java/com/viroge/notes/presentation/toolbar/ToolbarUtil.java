@@ -1,16 +1,21 @@
-package com.viroge.utils.generic;
+package com.viroge.notes.presentation.toolbar;
 
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.widget.TextView;
 
-import com.viroge.utils.examples.R;
+import com.viroge.notes.examples.R;
 
 /**
  * ToolbarUtil is just a simple helper which provides easy update and
  * configuration for different types of toolbars.
  */
 public class ToolbarUtil {
+
+    // Toolbar TITLES - Currently hardcoded
+    public static final String TOOLBAR_TITLE_CATEGORIES = "Categories";
+    public static final String TOOLBAR_TITLE_ITEMS = "Items";
+    public static final String TOOLBAR_TITLE_ITEM_DETAILS = "Item Details";
 
     public static void setToolbarTitle(final Toolbar toolbar,
                                        final String newTitle) {

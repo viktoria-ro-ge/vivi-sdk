@@ -1,10 +1,10 @@
-package com.viroge.utils.navigation;
+package com.viroge.notes.presentation.side_menu;
 
-class NavigationItem {
+public class NavigationItem {
 
     private final String title;
 
-    NavigationItem(final String title) {
+    public NavigationItem(final String title) {
         this.title = title;
     }
 
