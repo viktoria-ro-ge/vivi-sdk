@@ -3,8 +3,8 @@ package com.viroge.utils.kotlinapp.base
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
-import kotlinx.android.synthetic.main.ka_activity_base.*
-import kotlin.reflect.KClass
+import kotlinx.android.synthetic.main.g_toolbar.*
+import kotlinx.android.synthetic.main.ka_activity_sidemenu.*
 
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -12,9 +12,12 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(getContentView())
         setSupportActionBar(toolbar)
+
+        // Add content
+        layoutInflater.inflate(getMainContainer(), content);
     }
 
-    protected abstract fun getFragmentType(): KClass<out BaseFragment>
+    protected abstract fun getMainContainer(): Int
 
     protected abstract fun getContentView(): Int
 

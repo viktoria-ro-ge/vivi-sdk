@@ -13,9 +13,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.viroge.utils.notesapp.reorder.ReorderUtil;
-import com.viroge.utils.examples.R;
+import com.viroge.utils.R;
 import com.viroge.utils.generic.drag_n_drop.DragNDropListener;
+import com.viroge.utils.notesapp.reorder.ReorderUtil;
 
 public class DragNDropView extends LinearLayout {
 
@@ -43,9 +43,9 @@ public class DragNDropView extends LinearLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        title = (TextView) findViewById(R.id.dnd_title);
-        detailsButton = (ImageView) findViewById(R.id.dnd_details_button);
-        reorderButton = (ImageView) findViewById(R.id.dnd_reorder_button);
+        title = findViewById(R.id.dnd_title);
+        detailsButton = findViewById(R.id.dnd_details_button);
+        reorderButton = findViewById(R.id.dnd_reorder_button);
     }
 
     protected void bind(final Parcelable model,

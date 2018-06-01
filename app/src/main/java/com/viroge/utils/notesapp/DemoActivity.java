@@ -3,7 +3,7 @@ package com.viroge.utils.notesapp;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.viroge.utils.examples.R;
+import com.viroge.utils.R;
 import com.viroge.utils.notesapp.reorder.ReorderRootView;
 
 public class DemoActivity extends AppCompatActivity {
@@ -15,7 +15,7 @@ public class DemoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.na_activity_demo);
 
-        personalizationOfAccountsRoot = (ReorderRootView) findViewById(R.id.personalization_of_accounts_root);
+        personalizationOfAccountsRoot = findViewById(R.id.personalization_of_accounts_root);
     }
 
     @Override

@@ -1,18 +1,19 @@
 package com.viroge.utils.generic.drag_n_drop;
 
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.viroge.utils.generic.drag_n_drop.model.DragNDropItemModel;
-import com.viroge.utils.notesapp.reorder.ReorderUtil;
-import com.viroge.utils.generic.drag_n_drop.model.DragNDropCategoryModel;
-import com.viroge.utils.generic.drag_n_drop.view.DragNDropItemView;
-import com.viroge.utils.generic.drag_n_drop.view.DragNDropCategoryView;
+import com.viroge.utils.R;
 import com.viroge.utils.generic.GenericViewHolder;
-import com.viroge.utils.examples.R;
+import com.viroge.utils.generic.drag_n_drop.model.DragNDropCategoryModel;
+import com.viroge.utils.generic.drag_n_drop.model.DragNDropItemModel;
+import com.viroge.utils.generic.drag_n_drop.view.DragNDropCategoryView;
+import com.viroge.utils.generic.drag_n_drop.view.DragNDropItemView;
+import com.viroge.utils.notesapp.reorder.ReorderUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -42,8 +43,9 @@ public class DragNDropAdapter extends RecyclerView.Adapter<GenericViewHolder> {
         return TYPE_ITEM;
     }
 
+    @NonNull
     @Override
-    public GenericViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public GenericViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         final View view;
         switch (viewType) {
             case TYPE_CATEGORY:
@@ -59,7 +61,7 @@ public class DragNDropAdapter extends RecyclerView.Adapter<GenericViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(GenericViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull GenericViewHolder holder, final int position) {
         // Bind the new data to the item
         switch (holder.getHolderType()) {
             case TYPE_CATEGORY:
@@ -84,7 +86,7 @@ public class DragNDropAdapter extends RecyclerView.Adapter<GenericViewHolder> {
         return itemsList;
     }
 
-    public boolean onItemMove(int fromPosition, int toPosition) {
+    void onItemMove(int fromPosition, int toPosition) {
         if (fromPosition < toPosition) {
             for (int i = fromPosition; i < toPosition; i++) {
                 Collections.swap(itemsList, i, i + 1);
@@ -95,7 +97,6 @@ public class DragNDropAdapter extends RecyclerView.Adapter<GenericViewHolder> {
             }
         }
         notifyItemMoved(fromPosition, toPosition);
-        return true;
     }
 
     public void setOnStartDragListener(final DragNDropListener startDragListener) {

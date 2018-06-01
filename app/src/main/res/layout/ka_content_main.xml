@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.viroge.utils.kotlinapp.base.SideMenuActivity"
-    tools:showIn="@layout/ka_activity_base">
+    tools:showIn="@layout/ka_activity_sidemenu">
 
     <TextView
         android:layout_width="wrap_content"

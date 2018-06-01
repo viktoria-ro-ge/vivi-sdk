@@ -1,8 +1,6 @@
 package com.viroge.utils.notesapp.reorder;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
 import android.os.Parcelable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,13 +11,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.viroge.utils.generic.drag_n_drop.model.DragNDropItemModel;
-import com.viroge.utils.examples.R;
-import com.viroge.utils.generic.drag_n_drop.DragNDropListener;
+import com.viroge.utils.R;
+import com.viroge.utils.generic.ToolbarUtil;
 import com.viroge.utils.generic.drag_n_drop.DragNDropAdapter;
+import com.viroge.utils.generic.drag_n_drop.DragNDropListener;
 import com.viroge.utils.generic.drag_n_drop.DragNDropTouchHelperCallback;
 import com.viroge.utils.generic.drag_n_drop.model.DragNDropCategoryModel;
-import com.viroge.utils.generic.ToolbarUtil;
+import com.viroge.utils.generic.drag_n_drop.model.DragNDropItemModel;
 
 import java.util.ArrayList;
 
@@ -64,16 +62,11 @@ public class ReorderRootView extends FrameLayout {
         super(context, attrs, defStyleAttr);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public ReorderRootView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-    }
-
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,10 +75,10 @@ public class ReorderRootView extends FrameLayout {
         });
         updateToolbar(ReorderUtil.TOOLBAR_MODE_CATEGORIES);
 
-        categoryHeader = (ReorderHeader) findViewById(R.id.personalization_of_accounts_portfolio_header);
-        reorderItemDetailsLayout = (ReorderItemDetailsLayout) findViewById(R.id.personalization_of_accounts_account_details_layout);
+        categoryHeader = findViewById(R.id.personalization_of_accounts_portfolio_header);
+        reorderItemDetailsLayout = findViewById(R.id.personalization_of_accounts_account_details_layout);
 
-        final RecyclerView portfoliosList = (RecyclerView) findViewById(R.id.personalization_of_accounts_root_recycler);
+        final RecyclerView portfoliosList = findViewById(R.id.personalization_of_accounts_root_recycler);
         portfoliosList.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new DragNDropAdapter();
 
@@ -226,7 +219,7 @@ public class ReorderRootView extends FrameLayout {
         ToolbarUtil.setToolbarTitle(toolbar, title);
         ToolbarUtil.setToolbarNavigationIcon(toolbar, navigationIconRes);
         if (showMenu) {
-            ToolbarUtil.setToolbarMenu(toolbar, R.menu.menu_reorder);
+            ToolbarUtil.setToolbarMenu(toolbar, R.menu.na_menu_reorder);
             // Prepare the mode switch menu item
             final MenuItem menuItem = toolbar.getMenu().findItem(R.id.action_switch_mode);
             menuItem.setIcon(menuItemIconRes);
