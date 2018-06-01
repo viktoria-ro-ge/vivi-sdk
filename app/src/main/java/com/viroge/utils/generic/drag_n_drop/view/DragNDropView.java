@@ -1,4 +1,4 @@
-package com.viroge.utils.drag_n_drop.view;
+package com.viroge.utils.generic.drag_n_drop.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -13,9 +13,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.viroge.utils.reorder.ReorderUtil;
+import com.viroge.utils.notesapp.reorder.ReorderUtil;
 import com.viroge.utils.examples.R;
-import com.viroge.utils.drag_n_drop.DragNDropListener;
+import com.viroge.utils.generic.drag_n_drop.DragNDropListener;
 
 public class DragNDropView extends LinearLayout {
 

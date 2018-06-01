@@ -1,4 +1,4 @@
-package com.viroge.utils.reorder;
+package com.viroge.utils.notesapp.reorder;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.viroge.utils.drag_n_drop.model.DragNDropItemModel;
+import com.viroge.utils.generic.drag_n_drop.model.DragNDropItemModel;
 import com.viroge.utils.examples.R;
 
 public class ReorderItemDetailsLayout extends RelativeLayout {

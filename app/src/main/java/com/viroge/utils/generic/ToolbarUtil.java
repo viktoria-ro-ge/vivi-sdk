@@ -14,7 +14,7 @@ public class ToolbarUtil {
 
     public static void setToolbarTitle(final Toolbar toolbar,
                                        final String newTitle) {
-        // A text view is contained within the toolbar to allow easier customization
+        // A text view is contained within the g_toolbar to allow easier customization
         final TextView titleTextView = (TextView) toolbar.findViewById(R.id.toolbar_title);
         if (!TextUtils.isEmpty(newTitle) && titleTextView != null) {
             titleTextView.setText(newTitle);

@@ -1,4 +1,4 @@
-package com.viroge.utils.drag_n_drop.view;
+package com.viroge.utils.generic.drag_n_drop.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -9,8 +9,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
-import com.viroge.utils.drag_n_drop.DragNDropListener;
-import com.viroge.utils.drag_n_drop.model.DragNDropItemModel;
+import com.viroge.utils.generic.drag_n_drop.DragNDropListener;
+import com.viroge.utils.generic.drag_n_drop.model.DragNDropItemModel;
 import com.viroge.utils.examples.R;
 
 public class DragNDropItemView extends DragNDropView {

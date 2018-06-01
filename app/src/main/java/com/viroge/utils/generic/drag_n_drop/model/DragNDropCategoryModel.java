@@ -1,4 +1,4 @@
-package com.viroge.utils.drag_n_drop.model;
+package com.viroge.utils.generic.drag_n_drop.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

@@ -1,4 +1,4 @@
-package com.viroge.utils.reorder;
+package com.viroge.utils.notesapp.reorder;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.viroge.utils.examples.R;
-import com.viroge.utils.drag_n_drop.model.DragNDropCategoryModel;
+import com.viroge.utils.generic.drag_n_drop.model.DragNDropCategoryModel;
 
 public class ReorderHeader extends LinearLayout {
 

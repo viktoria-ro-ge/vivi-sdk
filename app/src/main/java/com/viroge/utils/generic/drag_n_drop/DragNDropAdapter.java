@@ -1,4 +1,4 @@
-package com.viroge.utils.drag_n_drop;
+package com.viroge.utils.generic.drag_n_drop;
 
 import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
@@ -6,11 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.viroge.utils.drag_n_drop.model.DragNDropItemModel;
-import com.viroge.utils.reorder.ReorderUtil;
-import com.viroge.utils.drag_n_drop.model.DragNDropCategoryModel;
-import com.viroge.utils.drag_n_drop.view.DragNDropItemView;
-import com.viroge.utils.drag_n_drop.view.DragNDropCategoryView;
+import com.viroge.utils.generic.drag_n_drop.model.DragNDropItemModel;
+import com.viroge.utils.notesapp.reorder.ReorderUtil;
+import com.viroge.utils.generic.drag_n_drop.model.DragNDropCategoryModel;
+import com.viroge.utils.generic.drag_n_drop.view.DragNDropItemView;
+import com.viroge.utils.generic.drag_n_drop.view.DragNDropCategoryView;
 import com.viroge.utils.generic.GenericViewHolder;
 import com.viroge.utils.examples.R;
 
@@ -47,12 +47,12 @@ public class DragNDropAdapter extends RecyclerView.Adapter<GenericViewHolder> {
         final View view;
         switch (viewType) {
             case TYPE_CATEGORY:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.drag_n_drop_category, parent, false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.g_drag_n_drop_category, parent, false);
                 break;
 
             case TYPE_ITEM:
             default:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.drag_n_drop_item, parent, false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.g_drag_n_drop_item, parent, false);
                 break;
         }
         return new GenericViewHolder(view, viewType);

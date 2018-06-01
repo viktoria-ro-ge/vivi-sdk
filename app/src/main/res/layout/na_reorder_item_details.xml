@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.viroge.utils.reorder.ReorderItemDetailsLayout
+<com.viroge.utils.notesapp.reorder.ReorderItemDetailsLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/personalization_of_accounts_account_details_layout"
@@ -105,4 +105,4 @@
         android:text="Save"
         android:textColor="@android:color/black" />
 
-</com.viroge.utils.reorder.ReorderItemDetailsLayout>
+</com.viroge.utils.notesapp.reorder.ReorderItemDetailsLayout>

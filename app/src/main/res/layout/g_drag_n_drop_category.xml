@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.viroge.utils.drag_n_drop.view.DragNDropCategoryView
+<com.viroge.utils.generic.drag_n_drop.view.DragNDropCategoryView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/dnd_portfolio_item"
     android:layout_width="match_parent"
@@ -41,4 +41,4 @@
         android:src="@drawable/ic_action_drag_handle"
         android:visibility="gone" />
 
-</com.viroge.utils.drag_n_drop.view.DragNDropCategoryView>
+</com.viroge.utils.generic.drag_n_drop.view.DragNDropCategoryView>

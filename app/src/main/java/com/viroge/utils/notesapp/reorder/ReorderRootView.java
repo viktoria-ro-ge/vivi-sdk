@@ -1,4 +1,4 @@
-package com.viroge.utils.reorder;
+package com.viroge.utils.notesapp.reorder;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -13,12 +13,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.viroge.utils.drag_n_drop.model.DragNDropItemModel;
+import com.viroge.utils.generic.drag_n_drop.model.DragNDropItemModel;
 import com.viroge.utils.examples.R;
-import com.viroge.utils.drag_n_drop.DragNDropListener;
-import com.viroge.utils.drag_n_drop.DragNDropAdapter;
-import com.viroge.utils.drag_n_drop.DragNDropTouchHelperCallback;
-import com.viroge.utils.drag_n_drop.model.DragNDropCategoryModel;
+import com.viroge.utils.generic.drag_n_drop.DragNDropListener;
+import com.viroge.utils.generic.drag_n_drop.DragNDropAdapter;
+import com.viroge.utils.generic.drag_n_drop.DragNDropTouchHelperCallback;
+import com.viroge.utils.generic.drag_n_drop.model.DragNDropCategoryModel;
 import com.viroge.utils.generic.ToolbarUtil;
 
 import java.util.ArrayList;

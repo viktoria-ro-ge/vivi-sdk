@@ -1,4 +1,4 @@
-package com.viroge.utils.reorder;
+package com.viroge.utils.notesapp.reorder;
 
 public class ReorderUtil {
     // Toolbar STATES

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.viroge.utils.reorder.ReorderRootView
+<com.viroge.utils.notesapp.reorder.ReorderRootView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/personalization_of_accounts_root"
@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
 
-        <include layout="@layout/toolbar" />
+        <include layout="@layout/g_toolbar" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:orientation="vertical"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <include layout="@layout/reorder_category_header" />
+            <include layout="@layout/na_reorder_category_header" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/personalization_of_accounts_root_recycler"
@@ -29,8 +29,8 @@
 
         </LinearLayout>
 
-        <include layout="@layout/reorder_item_details" />
+        <include layout="@layout/na_reorder_item_details" />
 
     </android.support.design.widget.CoordinatorLayout>
 
-</com.viroge.utils.reorder.ReorderRootView>
+</com.viroge.utils.notesapp.reorder.ReorderRootView>

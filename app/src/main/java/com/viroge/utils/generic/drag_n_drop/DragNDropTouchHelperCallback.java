@@ -1,4 +1,4 @@
-package com.viroge.utils.drag_n_drop;
+package com.viroge.utils.generic.drag_n_drop;
 
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;

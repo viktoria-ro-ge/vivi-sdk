@@ -1,4 +1,4 @@
-package com.viroge.utils.drag_n_drop.view;
+package com.viroge.utils.generic.drag_n_drop.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -6,8 +6,8 @@ import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 
-import com.viroge.utils.drag_n_drop.DragNDropListener;
-import com.viroge.utils.drag_n_drop.model.DragNDropCategoryModel;
+import com.viroge.utils.generic.drag_n_drop.DragNDropListener;
+import com.viroge.utils.generic.drag_n_drop.model.DragNDropCategoryModel;
 
 public class DragNDropCategoryView extends DragNDropView {
 
